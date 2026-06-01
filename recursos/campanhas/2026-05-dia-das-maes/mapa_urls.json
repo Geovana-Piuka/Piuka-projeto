@@ -1,0 +1,20 @@
+{
+  "campanha": "2026-05-dia-das-maes",
+  "gerado_em": "2026-04-25",
+  "_instrucao": "Preencha as URLs vazias com os links das imagens hospedadas no CDN ou ESP antes de rodar substituir_placeholders.js",
+  "placeholders": {
+    "{{IMG_LOGO_PIUKA}}": "https://cdn.piuka.com.br/logos/piuka_colorida.png",
+    "{{IMG_HERO}}": "https://cdn.piuka.com.br/campanhas/maes2026/hero.jpg",
+    "{{IMG_PRODUTO_1}}": "",
+    "{{IMG_PRODUTO_2}}": "",
+    "{{IMG_PRODUTO_3}}": "",
+    "{{IMG_PRODUTO_4}}": "",
+    "{{IMG_ASSINATURA}}": "",
+    "{{IMG_ICON_INSTAGRAM}}": "recursos/icones_sociais/instagram.svg",
+    "{{IMG_ICON_TIKTOK}}": "recursos/icones_sociais/tiktok.svg",
+    "{{IMG_ICON_YOUTUBE}}": "recursos/icones_sociais/youtube.svg",
+    "{{IMG_ICON_FACEBOOK}}": "recursos/icones_sociais/facebook.svg",
+    "{{IMG_ICON_PINTEREST}}": "recursos/icones_sociais/pinterest.svg",
+    "{{IMG_ICON_LINKEDIN}}": "recursos/icones_sociais/linkedin.svg"
+  }
+}

@@ -1,0 +1,14 @@
+# Imagens de campanha — grandes, não versionadas
+recursos/campanhas/*/refs/
+recursos/campanhas/*/geradas/
+recursos/campanhas/*/aprovadas/
+recursos/logos/*.png
+recursos/logos/*.jpg
+
+# Node
+node_modules/
+package-lock.json
+
+# Credenciais
+.env
+.env.*

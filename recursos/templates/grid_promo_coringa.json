@@ -1,0 +1,138 @@
+{
+  "_instrucoes": {
+    "como_usar": [
+      "1. Substitua os campos {{VARIAVEL}} pelos valores da campanha",
+      "2. Defina quantas imagens você tem: 2 (diptych), 3 (triptych) ou 4 (2x2)",
+      "3. Copie o bloco 'prompt_freepik_final' e cole no Freepik",
+      "4. Antes de rodar, anexe as imagens de referência na ordem declarada em imagens_referencia[]",
+      "5. Sem logo neste template — é peça de promoção pura (produto/modelo)"
+    ],
+    "layouts_suportados": {
+      "2_imagens": "diptych lado a lado (2 colunas x 1 linha)",
+      "3_imagens": "triptych lado a lado (3 colunas x 1 linha)",
+      "4_imagens": "grade 2x2 (2 colunas x 2 linhas) — padrão 05/05"
+    }
+  },
+
+  "meta": {
+    "template": "piuka_grid_promo_coringa_v1",
+    "familia": "produto_flatlay_4x5",
+    "formato": "1:1",
+    "cliente": "Piuka",
+    "campanha": "{{NOME_DA_CAMPANHA}}",
+    "influencer": null,
+    "data_entrega": "{{AAAA-MM-DD}}"
+  },
+
+  "canvas": {
+    "width": 1080,
+    "height": 1080,
+    "background_color": "#FFFFFF"
+  },
+
+  "layout": {
+    "num_imagens": "{{2 | 3 | 4}}",
+    "gap_px": 4,
+    "cor_gap": "#F4F2F0",
+    "configuracoes": {
+      "2_imagens": { "colunas": 2, "linhas": 1, "celula_w": 538, "celula_h": 1080 },
+      "3_imagens": { "colunas": 3, "linhas": 1, "celula_w": 357, "celula_h": 1080 },
+      "4_imagens": { "colunas": 2, "linhas": 2, "celula_w": 538, "celula_h": 538 }
+    }
+  },
+
+  "imagens_referencia": [
+    {
+      "id": "imagem_ref_1",
+      "descricao": "{{DESCRICAO_BREVE_DO_QUE_APARECE_NA_FOTO}}",
+      "papel": "{{quadrante_topo_esquerda | painel_esquerda | painel_1}}"
+    },
+    {
+      "id": "imagem_ref_2",
+      "descricao": "{{DESCRICAO_BREVE_DO_QUE_APARECE_NA_FOTO}}",
+      "papel": "{{quadrante_topo_direita | painel_direita | painel_2}}"
+    },
+    {
+      "id": "imagem_ref_3",
+      "descricao": "{{DESCRICAO_BREVE_DO_QUE_APARECE_NA_FOTO — remover se só 2 imagens}}",
+      "papel": "{{quadrante_baixo_esquerda | painel_3}}"
+    },
+    {
+      "id": "imagem_ref_4",
+      "descricao": "{{DESCRICAO_BREVE_DO_QUE_APARECE_NA_FOTO — remover se só 2 ou 3 imagens}}",
+      "papel": "quadrante_baixo_direita"
+    }
+  ],
+
+  "copy": {
+    "data_destaque": "{{EX: 05/05 | 12/06 | null se não tiver data}}",
+    "headline_grande": "{{EX: 15% | FRETE GRÁTIS | LANÇAMENTO}}",
+    "complemento_headline": "{{EX: OFF | null}}",
+    "subtexto": "{{EX: EM TODO SITE! | ATÉ 60% OFF | null}}",
+    "icone_decorativo": "{{✦ | ★ | null}}"
+  },
+
+  "overlay_central": {
+    "ativo": true,
+    "largura_px": 320,
+    "altura_px": 280,
+    "cor_fundo": "#FFFFFF",
+    "opacidade": 0.88,
+    "posicao": "centro_exato",
+    "obs": "Para 2 ou 3 imagens, o overlay pode ir no painel central ou no terço inferior — ajustar 'posicao' para 'painel_central_inferior' se preferir"
+  },
+
+  "paleta": {
+    "branco": "#FFFFFF",
+    "rosa_piuka": "#E91E63",
+    "dourado": "#D4AF37",
+    "texto_padrao": "#333333",
+    "neutro_foto": "#F4F2F0",
+    "preto": "#111111"
+  },
+
+  "tipografia_overlay": {
+    "data": { "fonte": "Montserrat", "peso": 400, "tamanho": "22px", "cor": "#111111", "tracking": "0.12em" },
+    "headline_grande": { "fonte": "Playfair Display", "peso": 900, "tamanho": "128px", "cor": "#111111" },
+    "complemento": { "fonte": "Playfair Display", "peso": 700, "tamanho": "64px", "cor": "#111111" },
+    "subtexto": { "fonte": "Montserrat", "peso": 400, "tamanho": "14px", "cor": "#333333", "tracking": "0.18em" }
+  },
+
+  "prompt_freepik_final": "Grade {{LAYOUT: '2x2 quadrada' | 'diptych lado a lado' | 'triptych lado a lado'}} 1:1 (1080x1080px) de campanha de semijoias Piuka. Fundo branco #FFFFFF. {{NUM_IMAGENS}} painéis iguais separados por linhas finas de 4px na cor #F4F2F0, formando uma única imagem coesa. Usar as imagens de referência anexadas exatamente como enviadas: {{LISTA_IMAGENS_EX: 'imagem_ref_1 no quadrante superior esquerdo (close brinco flor dourado); imagem_ref_2 no quadrante superior direito (modelo de frente, pulseiras); imagem_ref_3 no quadrante inferior esquerdo (...); imagem_ref_4 no quadrante inferior direito (...)'}}.  Sobre o cruzamento central dos painéis, sobrepor um bloco retangular branco (#FFFFFF) de 320x280px com opacidade 88%, centralizado exatamente no ponto de interseção. Dentro desse bloco branco, empilhar verticalmente: {{SE data_destaque}} (1) texto '{{DATA_DESTAQUE}}' em Montserrat peso 400 22px #111111 com tracking largo, centralizado; {{/SE}} (2) '{{HEADLINE_GRANDE}}' em Playfair Display peso 900 128px #111111 {{SE complemento}}alinhado à direita do eixo central, e '{{COMPLEMENTO}}' em Playfair Display peso 700 64px #111111 alinhado à esquerda do eixo, na mesma linha base — formando '{{HEADLINE_GRANDE}}{{COMPLEMENTO}}' com o número maior e o complemento menor lado a lado{{/SE}}; (3) '{{SUBTEXTO}}' em Montserrat peso 400 14px #333333 com tracking largo, centralizado; {{SE icone}}(4) símbolo {{ICONE}} pequeno em #111111 abaixo{{/SE}}. Estética: editorial limpo, grid perfeitamente alinhado, tipografia central elegante, premium feminino. Paleta restrita a #FFFFFF, #111111, #333333, #F4F2F0. Sem outros textos, sem watermark, sem logos inventadas.",
+
+  "_exemplos_preenchidos": {
+    "05_05_15off": {
+      "campanha": "05/05 — 15% OFF Todo o Site",
+      "num_imagens": 4,
+      "copy": {
+        "data_destaque": "05/05",
+        "headline_grande": "15%",
+        "complemento_headline": "OFF",
+        "subtexto": "EM TODO SITE!",
+        "icone_decorativo": "✦"
+      }
+    },
+    "dia_dos_namorados_frete": {
+      "campanha": "Dia dos Namorados — Frete Grátis",
+      "num_imagens": 4,
+      "copy": {
+        "data_destaque": "12/06",
+        "headline_grande": "FRETE",
+        "complemento_headline": "GRÁTIS",
+        "subtexto": "EM TODO SITE!",
+        "icone_decorativo": "★"
+      }
+    },
+    "lancamento_simples": {
+      "campanha": "Lançamento Coleção Nova",
+      "num_imagens": 3,
+      "copy": {
+        "data_destaque": null,
+        "headline_grande": "CHEGOU",
+        "complemento_headline": null,
+        "subtexto": "NOVA COLEÇÃO",
+        "icone_decorativo": "✦"
+      }
+    }
+  }
+}

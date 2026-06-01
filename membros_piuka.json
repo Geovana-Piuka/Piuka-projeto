@@ -1,0 +1,9 @@
+{
+  "_note": "Preencher os IDs quando o acesso aos boards for liberado. Rodar GET /boards/{BOARD_ID}/members para obter os IDs.",
+  "Amanda": "",
+  "Pietra": "",
+  "Joy": "",
+  "Marcela": "",
+  "Ana": "",
+  "Freela": ""
+}

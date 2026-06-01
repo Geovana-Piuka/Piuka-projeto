@@ -1,0 +1,60 @@
+{
+  "_doc": "Configuração das rotinas automáticas do agente Piuka. Edite aqui para mudar comportamento sem precisar alterar os crons na Anthropic.",
+
+  "trello": {
+    "board_id": "69ecafc3772056695d9db3a0",
+    "listas_monitoradas": ["Campanhas do Mês", "Campanhas Lojas Físicas", "Aprovar | E-mail"],
+    "lista_concluidas": "Enviados / Concluídas",
+    "lista_aprovacao": "Aprovar | E-mail",
+    "keyword_comandos": "[claude]"
+  },
+
+  "rotinas": {
+    "relatorio_matinal": {
+      "horario_brt": "07:00",
+      "dias": "seg-sex",
+      "descricao": "Verifica cards atrasados, comenta nos cards com atraso, envia relatório de status via Telegram para Ana.",
+      "ativo": true
+    },
+    "check_comandos": {
+      "horario_brt": "08:00 às 20:00, de hora em hora",
+      "dias": "todos",
+      "descricao": "Verifica comentários com [claude] em qualquer card do board. Executa o comando e responde no próprio card.",
+      "comandos_suportados": [
+        "[claude] fechar — marca o card como concluído e move para Enviados/Concluídas",
+        "[claude] status — responde com status atual do card (responsável, prazo, lista)",
+        "[claude] criar NOME — cria novo card na lista Campanhas do Mês com o nome informado",
+        "[claude] att DESCRICAO — atualiza a descrição do card com o texto informado"
+      ],
+      "ativo": true
+    },
+    "check_atrasos_meiodia": {
+      "horario_brt": "12:00",
+      "dias": "todos",
+      "descricao": "Verifica cards que ficaram atrasados desde a manhã. Comenta nos cards mas NÃO envia Telegram.",
+      "ativo": true
+    },
+    "resumo_fim_dia": {
+      "horario_brt": "18:00",
+      "dias": "seg-sex",
+      "descricao": "Envia resumo via Telegram: o que foi concluído no dia, o que está pendente, o que vence amanhã.",
+      "ativo": true
+    }
+  },
+
+  "telegram": {
+    "chat_id_cristian": "1487126297",
+    "chat_id_ana": "",
+    "_nota_ana": "Preencha com o chat ID da Ana. Ela consegue o ID mandando /start para @userinfobot no Telegram."
+  },
+
+  "membros_trello": {
+    "_nota": "Preencha com os IDs reais quando o board da Piuka estiver conectado. Use GET /boards/{BOARD}/members para listar.",
+    "Amanda": "",
+    "Isabelle": "",
+    "Pietra": "",
+    "Joy": "",
+    "Marcela": "",
+    "Ana": ""
+  }
+}

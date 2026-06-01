@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "template": "piuka_banner_v1",
+    "tipo": "banner_site",
+    "cliente": "Piuka",
+    "campanha": "15% OFF Loja Toda",
+    "data_entrega": "2026-05-12"
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 560,
+    "background_color": "#F4EAE2"
+  },
+  "tipografia": {
+    "display": { "fonte": "BD Megalona DEMO Personal Use", "pesos": [400, 700] },
+    "corpo": { "fonte": "Montserrat", "pesos": [400, 600, 700, 800] },
+    "subtitulo": { "fonte": "Glacial Indifference", "pesos": [400, 700] }
+  },
+  "logo_piuka": "ausente — banners do site não levam logo",
+  "copy": {
+    "headline": "15% de desconto",
+    "subtitulo": "em toda a loja",
+    "cta": "Aproveitar Agora"
+  },
+  "elementos": [
+    {
+      "id": "headline",
+      "tipo": "texto",
+      "conteudo": "15% de desconto",
+      "fonte": "BD Megalona DEMO Personal Use",
+      "peso": 700,
+      "tamanho": "120px",
+      "cor": "#111111",
+      "posicao": { "x": "160px", "y": "160px" },
+      "alinhamento": "left"
+    },
+    {
+      "id": "subtitulo",
+      "tipo": "texto",
+      "conteudo": "em toda a loja",
+      "fonte": "Glacial Indifference",
+      "peso": 400,
+      "tamanho": "48px",
+      "cor": "#333333",
+      "posicao": { "x": "164px", "y": "300px" },
+      "alinhamento": "left"
+    },
+    {
+      "id": "detalhe_linha",
+      "tipo": "forma",
+      "forma": "retangulo",
+      "largura": "80px",
+      "altura": "3px",
+      "cor": "#D4AF37",
+      "posicao": { "x": "164px", "y": "368px" }
+    },
+    {
+      "id": "cta_botao",
+      "tipo": "botao",
+      "conteudo": "Aproveitar Agora",
+      "fonte": "Montserrat",
+      "peso": 700,
+      "tamanho": "18px",
+      "cor_texto": "#FFFFFF",
+      "cor_fundo": "#E91E63",
+      "posicao": { "x": "164px", "y": "400px" },
+      "padding": "16px 44px",
+      "border_radius": "4px"
+    },
+    {
+      "id": "foto_modelo",
+      "tipo": "imagem",
+      "descricao": "Modelo com semijoias Piuka — colares de pérolas sobrepostos, ear cuff floral, pulseiras douradas, top creme com babados, fundo rosé/nude quente. Pose reclinada apoiando rosto na mão, olhar direto para a câmera.",
+      "posicao": { "x": "980px", "y": "0px" },
+      "largura": "940px",
+      "altura": "560px",
+      "object_fit": "cover",
+      "object_position": "top center"
+    }
+  ],
+  "imagens_referencia": [
+    {
+      "id": "modelo_principal",
+      "descricao": "Modelo fornecida pela equipe — mulher loira, semijoias douradas e pérolas, top creme com babados, fundo rosé/nude quente, pose reclinada"
+    }
+  ],
+  "prompt_freepik_gerado": "Wide promotional banner 1920x560px for a Brazilian fine jewelry brand. RIGHT HALF: a close-up photo-realistic image of a beautiful young woman with wavy ombre brown-to-blonde hair, wearing layered pearl and gold chain necklaces, a floral ear cuff, gold pearl bracelets, and a cream ruffled top. She rests her chin on her hand, smiling softly and looking directly at the camera. Warm peach-pink studio background. Elegant, feminine, editorial mood. LEFT HALF: solid warm background in hex #F4EAE2 — completely empty, reserved for text overlay. No text, no logo, no watermarks anywhere in the image. Soft natural studio lighting, high-end jewelry advertisement aesthetic."
+}

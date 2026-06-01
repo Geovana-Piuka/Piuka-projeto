@@ -1,0 +1,72 @@
+[
+  {
+    "loja": "Iguatemi Rio Preto",
+    "demanda": "Banner Vitrine",
+    "medida": "70L x 1,00A",
+    "quantidade": "1",
+    "prazo": "05/06/2026",
+    "arquivo_foto_base": "foto humanizada após sessão 04/06 — Marcela envia",
+    "status": "A fazer",
+    "observacoes": "Headline: AMOR QUE BRILHA | Copy: Semijoias para o dia a dia dela. Sem coração ou clichê de namorados. Paleta: neutros + dourado. Fundo off-white ou nude. Tom: elegante, feminino, luz natural."
+  },
+  {
+    "loja": "Iguatemi Campinas",
+    "demanda": "Banner Vitrine — Arco",
+    "medida": "94L x 75A — Arco",
+    "quantidade": "1",
+    "prazo": "05/06/2026",
+    "arquivo_foto_base": "foto humanizada após sessão 04/06",
+    "status": "A fazer",
+    "observacoes": "Mesmas diretrizes do banner 1 — adaptar para formato arco"
+  },
+  {
+    "loja": "Morumbi Shopping",
+    "demanda": "Acrílico Vitrine — Arco",
+    "medida": "57L x 1,12A — Arco",
+    "quantidade": "1",
+    "prazo": "05/06/2026",
+    "arquivo_foto_base": "foto humanizada após sessão 04/06",
+    "status": "A fazer",
+    "observacoes": "Mesmas diretrizes visuais da Demanda 1"
+  },
+  {
+    "loja": "Morumbi Shopping — lado esquerdo",
+    "demanda": "Acrílico Vitrine",
+    "medida": "62x60",
+    "quantidade": "1",
+    "prazo": "05/06/2026",
+    "arquivo_foto_base": "foto produto puro após sessão 03/06 — fundo neutro",
+    "status": "A fazer",
+    "observacoes": "Peça mais quadrada — produto em destaque com texto mínimo: headline + logo Piuka. Sem copy de apoio."
+  },
+  {
+    "loja": "Rio Preto Shopping",
+    "demanda": "Banner Vitrine — Arco",
+    "medida": "59L x 1,17A — Arco",
+    "quantidade": "1",
+    "prazo": "05/06/2026",
+    "arquivo_foto_base": "foto humanizada após sessão 04/06",
+    "status": "A fazer",
+    "observacoes": "Mesmas diretrizes visuais da Demanda 1"
+  },
+  {
+    "loja": "Ribeirão Shopping",
+    "demanda": "Banner Vitrine — Arco",
+    "medida": "78L x 96A — Arco",
+    "quantidade": "1",
+    "prazo": "05/06/2026",
+    "arquivo_foto_base": "foto humanizada após sessão 04/06",
+    "status": "A fazer",
+    "observacoes": "Mesmas diretrizes visuais da Demanda 1"
+  },
+  {
+    "loja": "todas",
+    "demanda": "Painel VM",
+    "medida": "ver tabela de tamanhos",
+    "quantidade": "97 total — Campinas 33 / Iguatemi RioPreto 18 / Morumbi 11 / RioPreto Shopping 21 / Ribeirão Preto 14",
+    "prazo": "05/06/2026",
+    "arquivo_foto_base": "foto editorial produto puro após sessão 03/06",
+    "status": "A fazer",
+    "observacoes": "Painel de identidade — não de promoção. Produto em destaque. Headline: AMOR QUE BRILHA + logo Piuka. Sem copy promocional."
+  }
+]

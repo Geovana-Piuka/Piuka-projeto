@@ -1,0 +1,22 @@
+PASTA DE IMAGENS — BRIEFING INFLUENCIADORAS
+============================================
+
+Coloque aqui as imagens que quer usar no briefing antes de rodar a skill.
+
+A skill vai ler todas as imagens automaticamente e identificar:
+
+  - Foto da influenciadora (capa)
+  - Foto do produto (sobre o mix)
+  - Foto editorial / look completo com a peça
+  - Foto da influenciadora usando o produto
+
+DICAS DE NOMES (opcional — ajuda a classificar melhor):
+  capa_ari.jpg         → usada como capa do briefing
+  produto_choker.jpg   → usada na seção "Sobre o Mix"
+  editorial_look.jpg   → usada como foto editorial
+  influencer_look.jpg  → influenciadora usando a peça
+
+Se preferir não renomear, tudo bem — a skill analisa o conteúdo visual
+e posiciona cada imagem no lugar mais adequado automaticamente.
+
+Após gerar o briefing, pode apagar ou mover as imagens desta pasta.
