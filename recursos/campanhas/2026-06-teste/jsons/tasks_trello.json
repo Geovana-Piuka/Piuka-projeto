@@ -1,0 +1,32 @@
+[
+  {
+    "titulo": "Banner Vitrine — Coleção Junho",
+    "resp": "Marcela",
+    "data": "09/06/2026",
+    "lista": "Campanhas do Mês",
+    "fazer": "Enviar arte de banner vitrine para a freela. Usar a foto da modelo com ear cuff dourado e pulseiras como referência visual principal. Confirmar medidas por loja antes de enviar.",
+    "material": "Seção 2.5B do briefing junho — ficha Banner Vitrine + tabela de tamanhos: Iguatemi RP 70Lx1,00A | Iguatemi Campinas 94Lx75A arco | Morumbi 57Lx1,12A arco | RP Shopping 59Lx1,17A arco | Ribeirão Shopping 78Lx96A arco",
+    "escalar": "Se a freela não confirmar recebimento até 06/06 — acionar Ana",
+    "cover_image": "imagem-banner.webp"
+  },
+  {
+    "titulo": "Placas PVC — Coleção Junho",
+    "resp": "Marcela",
+    "data": "09/06/2026",
+    "lista": "Campanhas do Mês",
+    "fazer": "Enviar arte de placas PVC 10x15cm e 21x15cm para a freela. Usar a foto da modelo com colar longo, vestido branco rendado e ear cuff como referência visual. Confirmar quantidades por loja antes de aprovar a impressão.",
+    "material": "Seção 2.5B do briefing junho — ficha Placas PVC. Qtd 10x15cm: Campinas 21 | Iguatemi RP 14 | Morumbi 8 | RP Shopping 14 | Ribeirão 8. Qtd 21x15cm: Campinas 12 | Iguatemi RP 4 | Morumbi 3 | RP Shopping 7 | Ribeirão 6",
+    "escalar": "Se medidas ou quantidades de alguma loja estiverem em dúvida — confirmar com Ana antes de enviar para impressão",
+    "cover_image": "imagem-pvc.webp"
+  },
+  {
+    "titulo": "Acrílico Quadrinho — Coleção Junho",
+    "resp": "Marcela",
+    "data": "09/06/2026",
+    "lista": "Campanhas do Mês",
+    "fazer": "Enviar arte de Acrílico Quadrinho 15x15cm (espessura 3mm) para a freela. Usar a foto da modelo com colares layering e argolas grandes como referência visual. Arte produzida por IA — confirmar arquivo aprovado antes de enviar.",
+    "material": "Seção 2.5B do briefing junho — ficha Acrílico Quadrinho. Qtd: Campinas 4 | Iguatemi RP 3 | Morumbi 4 | RP Shopping 3 | Ribeirão 4. Arte gerada via /imagens-piuka — verificar pasta geradas da campanha",
+    "escalar": "Se a arte não chegar aprovada até 07/06 — escalar para Ana imediatamente",
+    "cover_image": "imagem-acrilico.webp"
+  }
+]

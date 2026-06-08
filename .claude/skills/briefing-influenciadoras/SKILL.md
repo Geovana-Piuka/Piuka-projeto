@@ -74,10 +74,14 @@ Se encontrar imagens, informe antes de prosseguir:
 > 3. Qual o cupom de desconto exclusivo dela? (ex: ARICANOVAS10)
 > 4. Qual o texto do benefício do cupom? (ex: "Garante 10% OFF em todo o site" ou "Garante +10% OFF extra sobre os descontos do site!")
 
-### Bloco 4 — Link de afiliada
+### Bloco 4 — Links
 
-> Por último:
-> 1. Link de afiliada dela (o "seu link" do card) — pode deixar em branco se não tiver, usamos "clique para acessar seu link." como placeholder
+> Por último, me passa os 3 links do briefing (pode deixar em branco qualquer um — usamos "clique para acessar seu link." como placeholder):
+> 1. **Link da foto de introdução** — aparece sobre a foto editorial na página 2
+> 2. **Link do card "seu link"** — aparece no quadrado de destaque na página 3
+> 3. **Link da foto final** — aparece sobre a foto detalhe/encerramento na página 3
+
+Guarde cada um internamente como `[LINK_EDITORIAL]`, `[LINK_CARD]` e `[LINK_DETALHE]`. Se em branco, usar o texto `clique para acessar seu link.` no respectivo lugar.
 
 ---
 
@@ -110,10 +114,14 @@ Antes de montar o HTML, defina internamente cada valor:
 | `[TEXTO_CHAMADA]` | Texto de chamada, personalizando com nome da campanha e data |
 | `[CUPOM]` | Código do cupom |
 | `[TEXTO_BENEFICIO_CUPOM]` | Texto coletado no Bloco 3 |
+| `[LINK_EDITORIAL]` | Link sobre a foto editorial (pág 2) — se vazio: `clique para acessar seu link.` |
+| `[LINK_CARD]` | Link do card "seu link" (pág 3) — se vazio: `clique para acessar seu link.` |
+| `[LINK_DETALHE]` | Link sobre a foto final (pág 3) — se vazio: `clique para acessar seu link.` |
 
 **Regras para `[IMGS_PRODUTOS]`:**
-- Um `<img>` por produto: `<img src="data:image/png;base64,..." style="width:100%;max-height:220px;object-fit:contain;background:transparent;">`
-- Se produto único: `<img src="..." style="grid-column:span 2;width:60%;margin:0 auto;max-height:220px;object-fit:contain;background:transparent;">`
+- **1 produto:** `<img src="..." style="width:60%;margin:0 auto;max-height:220px;object-fit:contain;background:transparent;">`
+- **2 produtos:** container `display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;` — cada img com `width:80%;max-height:200px;object-fit:contain;background:transparent;`
+- **3+ produtos:** container `display:grid;grid-template-columns:1fr 1fr;gap:8px;` — cada img com `width:100%;max-height:160px;object-fit:contain;background:transparent;`
 - Se não houver imagem de produto: `<div style="width:100%;height:180px;background:#f0e8ee;border-radius:4px;"></div>`
 
 **Regras para `[LISTA_PRODUTOS]`:**
@@ -126,14 +134,19 @@ Antes de montar o HTML, defina internamente cada valor:
 ```
 
 **Introdução — tom obrigatório:**
+- **Máximo 3-4 frases.** Texto curto e direto ao ponto.
 - Chamar pelo apelido/primeiro nome
 - Referenciar histórico com a Piuka se houver
-- Conectar o mix ao gosto pessoal dela
+- Conectar o mix ao estilo e gosto pessoal dela — mostrando que foi curado pensando nela, mas como algo que ela vai **apresentar e divulgar**, não modelar
+- **NUNCA escrever como se ela fosse o rosto/modelo da campanha** — frases como "seu nome precisava estar nessa história", "a coleção nasceu para você", "ninguém melhor do que você para ser o rosto" estão proibidas
+- A influenciadora é **parceira de divulgação**: apresenta e recomenda as peças ao público dela
+- Falar do mix com entusiasmo e afeto, exaltando as peças e conectando ao gosto dela
 - **NUNCA usar travessões (--) ou traços longos**
 
 Exemplos reais:
-- "Ari, para esse mix, trouxemos um acessório que é a sua cara: pérolas e a força do design orgânico!..."
-- "Oi oi Fe, o mix dessa vez é uma novidade emocionante! Estamos lançando nossa Campanha Mães..."
+- "Ari, que alegria ter você de volta! Para essa coleção, preparamos um mix que é a sua cara: peças com formato de coração, zircônias que brilham e aquele toque dourado que você já sabe usar tão bem. A Coleção Cathy nasceu para mulheres que não têm medo de se expressar com delicadeza e força ao mesmo tempo, e a gente sabia que você precisava apresentar essa história. Bora juntas nessa!"
+- "Oi oi Fe, o mix dessa vez é uma novidade emocionante! Estamos lançando nossa Campanha Mães e preparamos um mix que une tudo que você ama, elegância e claro: pérolas, lançadas agora no dia 16/04."
+- "Mi, para essa seleção, decidimos mergulhar na tendência que está dominando as passarelas e o street style internacional: o Mix de Banhos! Sabemos que você ama peças marcantes e que trazem personalidade para o look, por isso trouxemos semijoias que provam como a mistura do Dourado com o Ródio Branco cria um visual maximalista, ultra moderno e, acima de tudo, muito elegante."
 
 ---
 
@@ -161,27 +174,27 @@ Exemplos reais:
     .secao-titulo::after { content:'_'; }
     .secao-subtitulo { font-size:16px; font-weight:800; color:var(--rosa); margin-top:28px; margin-bottom:10px; }
     .secao-subtitulo::after { content:'_'; }
-    .texto-intro { font-size:14px; line-height:1.7; text-align:justify; }
+    .texto-intro { font-size:15px; line-height:1.7; text-align:justify; }
     .imagens-grid { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin:18px 0; }
     .link-badge { position:absolute; bottom:8px; right:8px; font-size:9px; color:var(--rosa); font-weight:700; text-shadow:0 1px 3px rgba(255,255,255,0.9); }
     .lista-produtos { list-style:disc; padding-left:16px; margin-top:6px; }
-    .lista-produtos li { font-size:13px; line-height:1.65; margin-bottom:8px; text-align:justify; }
+    .lista-produtos li { font-size:14px; line-height:1.65; margin-bottom:8px; text-align:justify; }
     .produto-nome { font-weight:800; }
     .rodape-logo { margin-top:auto; padding-top:20px; }
-    .chamada-texto { font-size:14px; line-height:1.7; text-align:justify; margin-bottom:10px; }
+    .chamada-texto { font-size:15px; line-height:1.7; text-align:justify; margin-bottom:10px; }
     .chamada-lista { list-style:disc; padding-left:16px; margin-bottom:20px; }
-    .chamada-lista li { font-size:13px; line-height:1.65; }
+    .chamada-lista li { font-size:14px; line-height:1.65; }
     .destaque { color:var(--rosa); font-weight:800; }
     .cards-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:20px 0; }
     .card { background:var(--rosa-card); border-radius:4px; padding:14px 12px; }
-    .card-label { font-size:12px; font-weight:800; color:var(--rosa); display:block; margin-bottom:8px; }
-    .card-valor { font-size:11px; font-weight:600; }
-    .card-link { font-size:10px; color:var(--rosa); text-decoration:underline; font-weight:600; }
+    .card-label { font-size:13px; font-weight:800; color:var(--rosa); display:block; margin-bottom:8px; }
+    .card-valor { font-size:13px; font-weight:600; }
+    .card-link { font-size:12px; color:var(--rosa); text-decoration:underline; font-weight:600; }
     .duvidas-bloco-topo { margin-top:24px; margin-bottom:16px; width:100%; }
     .duvidas-titulo { font-size:32px; font-weight:900; color:var(--rosa); line-height:1.1; margin-bottom:12px; width:100%; }
-    .duvidas-texto { font-size:13px; line-height:1.65; margin-bottom:12px; width:100%; }
+    .duvidas-texto { font-size:14px; line-height:1.65; margin-bottom:12px; width:100%; }
     .duvidas-inline { display:flex; align-items:center; gap:16px; margin-bottom:0; }
-    .contato-linha { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; }
+    .contato-linha { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; }
     .duvidas-foto-abs { position:absolute; bottom:0; right:0; width:380px; height:auto; object-fit:cover; border-radius:200px 0 0 0; display:block; }
     @page { margin:0; size:A4; }
     @media print { .pagina-capa, .pagina { page-break-after:always; } }
@@ -205,12 +218,12 @@ Exemplos reais:
   <p class="texto-intro">[TEXTO_INTRODUCAO]</p>
 
   <div class="imagens-grid">
-    <div style="flex:0 0 45%;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;">
+    <div style="flex:0 0 42%;">
       [IMGS_PRODUTOS]
     </div>
     <div style="flex:1;position:relative;">
-      <img src="data:image/jpeg;base64,[BASE64_FOTO_EDITORIAL]" style="width:100%;height:auto;object-fit:cover;border-radius:24px;display:block;">
-      <span class="link-badge">clique para acessar o link.</span>
+      <img src="data:image/jpeg;base64,[BASE64_FOTO_EDITORIAL]" style="width:100%;height:420px;object-fit:cover;object-position:center 20%;border-radius:24px;display:block;">
+      <span class="link-badge"><a href="[LINK_EDITORIAL]" style="color:var(--rosa);font-weight:700;text-decoration:none;">[LINK_EDITORIAL]</a></span>
     </div>
   </div>
 
@@ -246,7 +259,7 @@ Exemplos reais:
     </div>
     <div class="card">
       <span class="card-label">seu link</span>
-      <span class="card-link">clique para acessar seu link.</span>
+      <span class="card-link"><a href="[LINK_CARD]" style="color:var(--rosa);font-weight:600;text-decoration:underline;">[LINK_CARD]</a></span>
     </div>
   </div>
 
@@ -260,7 +273,7 @@ Exemplos reais:
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
           <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="#1a1a1a"/>
         </svg>
-        Pietra Mouco | (17) 99717-8118
+        Marcela | (17) 99609-8668
       </div>
     </div>
   </div>
@@ -272,7 +285,7 @@ Exemplos reais:
 
   <!-- Foto colada na borda direita e inferior, saindo do padding -->
   <img src="data:image/jpeg;base64,[BASE64_FOTO_DETALHE]" class="duvidas-foto-abs">
-  <span style="position:absolute;bottom:8px;right:8px;font-size:11px;color:var(--rosa);font-weight:700;text-shadow:0 1px 3px rgba(255,255,255,0.9);">clique para acessar o link.</span>
+  <span style="position:absolute;bottom:8px;right:8px;font-size:11px;color:var(--rosa);font-weight:700;text-shadow:0 1px 3px rgba(255,255,255,0.9);"><a href="[LINK_DETALHE]" style="color:var(--rosa);font-weight:700;text-decoration:none;">[LINK_DETALHE]</a></span>
 </div>
 
 </body>
@@ -286,7 +299,9 @@ Exemplos reais:
 Execute o script Python abaixo para gerar o PDF direto a partir da string HTML, **sem criar arquivo .html**:
 
 ```python
+# -*- coding: utf-8 -*-
 import os
+import tempfile
 from playwright.sync_api import sync_playwright
 
 output_dir = r"C:\Users\ecommerceadm05\Desktop\piuka-projeto-main\.claude\skills\briefing-influenciadoras\briefings-gerados"
@@ -295,18 +310,26 @@ pdf_path = os.path.join(output_dir, "briefing_[nome-influencer]_[mes-ano].pdf")
 
 html_content = """COLAR_HTML_COMPLETO_AQUI"""
 
-with sync_playwright() as p:
-    browser = p.chromium.launch()
-    page = browser.new_page()
-    page.set_viewport_size({"width": 794, "height": 1123})
-    page.set_content(html_content, wait_until="networkidle")
-    page.pdf(
-        path=pdf_path,
-        format="A4",
-        print_background=True,
-        margin={"top": "0", "bottom": "0", "left": "0", "right": "0"}
-    )
-    browser.close()
+# Salva HTML como arquivo UTF-8 temporário para garantir encoding correto no Windows
+with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", suffix=".html", delete=False) as tmp:
+    tmp.write(html_content)
+    tmp_path = tmp.name
+
+try:
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+        page.set_viewport_size({"width": 794, "height": 1123})
+        page.goto(f"file:///{tmp_path.replace(os.sep, '/')}", wait_until="networkidle")
+        page.pdf(
+            path=pdf_path,
+            format="A4",
+            print_background=True,
+            margin={"top": "0", "bottom": "0", "left": "0", "right": "0"}
+        )
+        browser.close()
+finally:
+    os.unlink(tmp_path)
 
 print(f"PDF gerado: {pdf_path}")
 ```
@@ -322,11 +345,11 @@ Após gerar, informe o caminho completo do PDF para abrir diretamente. **Não cr
 
 ## Informações fixas da marca (sempre usar)
 
-- Site: www.piuka.com.br
+- Site: piuka.com (exibir sempre como `<span class="destaque">piuka.com</span>` no texto da chamada — sem "www")
 - Cashback: 15%
 - Frete grátis: acima de R$ 299,99
 - Banho: ouro 18k
-- Contato: Pietra Mouco | (17) 99717-8118
+- Contato: Marcela | (17) 99609-8668
 - Tom: próximo, feminino, sofisticado, empoderador — nunca frio ou genérico
 - **Cor principal:** rosa `#e91e8c` | **Fonte:** Montserrat (Google Fonts)
 

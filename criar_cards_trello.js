@@ -1,9 +1,10 @@
 // criar_cards_trello.js — Cria cards no Trello a partir do JSON de tasks do briefing Piuka
 //
 // Uso:
-//   node criar_cards_trello.js                        → usa tasks embutidas (briefing mais recente)
-//   node criar_cards_trello.js tasks.json             → lê tasks de arquivo JSON externo
-//   node criar_cards_trello.js tasks.json freela.json → também cria cards no board da freela
+//   node criar_cards_trello.js                                       → usa tasks embutidas
+//   node criar_cards_trello.js tasks.json                            → lê tasks de arquivo JSON externo
+//   node criar_cards_trello.js tasks.json freela.json                → também cria cards no board da freela
+//   node criar_cards_trello.js tasks.json --imagens ./pasta/refs/    → anexa covers dos cards
 //
 // Variáveis de ambiente necessárias (em .env na raiz do projeto):
 //   trello_apikey, trello_token, PIUKA_TRELLO_BOARD_ID, FREELA_TRELLO_BOARD_ID
@@ -123,20 +124,27 @@ function apiPost(path, body) {
   });
 }
 
+function mimeType(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  const map = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png',
+                '.webp': 'image/webp', '.gif': 'image/gif', '.json': 'application/json' };
+  return map[ext] || 'application/octet-stream';
+}
+
 function anexarArquivo(cardId, filePath) {
   return new Promise((resolve, reject) => {
     const fileName  = path.basename(filePath);
     const fileData  = fs.readFileSync(filePath);
     const boundary  = '----TrelloUpload' + Date.now();
-    const bodyParts = [
-      `--${boundary}\r\nContent-Disposition: form-data; name="key"\r\n\r\n${KEY}`,
-      `--${boundary}\r\nContent-Disposition: form-data; name="token"\r\n\r\n${TOKEN}`,
-      `--${boundary}\r\nContent-Disposition: form-data; name="name"\r\n\r\n${fileName}`,
-      `--${boundary}\r\nContent-Disposition: form-data; name="file"; filename="${fileName}"\r\nContent-Type: application/json\r\n\r\n`,
-    ];
-    const header = Buffer.from(bodyParts.join('\r\n') + '\r\n');
+    const mime      = mimeType(filePath);
+    const part1 = Buffer.from(
+      `--${boundary}\r\nContent-Disposition: form-data; name="key"\r\n\r\n${KEY}\r\n` +
+      `--${boundary}\r\nContent-Disposition: form-data; name="token"\r\n\r\n${TOKEN}\r\n` +
+      `--${boundary}\r\nContent-Disposition: form-data; name="name"\r\n\r\n${fileName}\r\n` +
+      `--${boundary}\r\nContent-Disposition: form-data; name="file"; filename="${fileName}"\r\nContent-Type: ${mime}\r\n\r\n`
+    );
     const footer = Buffer.from(`\r\n--${boundary}--\r\n`);
-    const body   = Buffer.concat([header, fileData, footer]);
+    const body   = Buffer.concat([part1, fileData, footer]);
 
     const options = {
       hostname: 'api.trello.com',
@@ -155,6 +163,26 @@ function anexarArquivo(cardId, filePath) {
   });
 }
 
+function apiPut(path, body) {
+  return new Promise((resolve, reject) => {
+    const params = new URLSearchParams({ ...body, key: KEY, token: TOKEN });
+    const options = {
+      hostname: 'api.trello.com',
+      path: `/1${path}`,
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+    };
+    const req = https.request(options, res => {
+      let data = '';
+      res.on('data', c => data += c);
+      res.on('end', () => resolve(JSON.parse(data)));
+    });
+    req.on('error', reject);
+    req.write(params.toString());
+    req.end();
+  });
+}
+
 function parseDateBR(str) {
   const [d, m, y] = str.split('/');
   if (!d || !m || !y) return null;
@@ -166,7 +194,12 @@ function parseDateBR(str) {
 async function main() {
   let tasks = TASKS_EMBUTIDAS;
 
-  if (process.argv[2]) {
+  // Detectar argumento --imagens
+  const imgIdx = process.argv.indexOf('--imagens');
+  const PASTA_IMAGENS = imgIdx !== -1 ? path.resolve(process.argv[imgIdx + 1]) : null;
+  if (PASTA_IMAGENS) console.log(`Pasta de covers: ${PASTA_IMAGENS}`);
+
+  if (process.argv[2] && !process.argv[2].startsWith('--')) {
     const file = path.resolve(process.argv[2]);
     tasks = JSON.parse(fs.readFileSync(file, 'utf8'));
     console.log(`Tasks carregadas de: ${file}`);
@@ -216,6 +249,24 @@ async function main() {
       console.log(`  ✅ [${t.lista}] ${t.titulo} → ${t.resp} | ${t.data}`);
       criados++;
 
+      // Se a task tiver imagem de cover → fazer upload e definir como cover
+      if (t.cover_image && PASTA_IMAGENS) {
+        const imgPath = path.join(PASTA_IMAGENS, t.cover_image);
+        if (fs.existsSync(imgPath)) {
+          const attachment = await anexarArquivo(card.id, imgPath);
+          if (attachment && attachment.id) {
+            await apiPut(`/cards/${card.id}`, {
+              'cover[idAttachment]': attachment.id,
+              'cover[brightness]': 'light',
+              'cover[size]': 'full',
+            });
+            console.log(`     🖼️  Cover: ${t.cover_image}`);
+          }
+        } else {
+          console.log(`     ⚠️  Cover não encontrado: ${imgPath}`);
+        }
+      }
+
       // Se a task tiver JSON de arte anexo → anexar ao card
       if (t.json_arte) {
         const jsonPath = path.resolve(__dirname, t.json_arte);
@@ -236,9 +287,9 @@ async function main() {
   if (erros) console.log('Verifique os nomes das listas e PIUKA_TRELLO_BOARD_ID no .env.');
 
   // ── Cards da freela (board próprio) ─────────────────────────────────────────
-  const freelaFile = process.argv[3]
-    ? path.resolve(process.argv[3])
-    : null;
+  // Ignorar argumentos que começam com '--' (ex: --imagens)
+  const freelaArg = process.argv[3] && !process.argv[3].startsWith('--') ? process.argv[3] : null;
+  const freelaFile = freelaArg ? path.resolve(freelaArg) : null;
 
   if (freelaFile && fs.existsSync(freelaFile)) {
     const demandas = JSON.parse(fs.readFileSync(freelaFile, 'utf8'));

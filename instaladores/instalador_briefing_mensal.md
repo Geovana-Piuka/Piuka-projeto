@@ -1,4 +1,4 @@
-# INSTALADOR — AGENTE DE BRIEFING MENSAL | PIUKA
+﻿# INSTALADOR — AGENTE DE BRIEFING MENSAL | PIUKA
 > Versão 2.0 — dados reais integrados. Campos marcados como `[CAMPO_ANA]` são preenchidos na sessão de extração com Ana Beatriz antes de usar em produção.
 
 ---
@@ -92,7 +92,7 @@ E-commerce e lojas físicas de semijoias e acessórios femininos. Baseada em Rib
 `[CAMPO_ANA — mais espontâneo? Usa gíria? Qual é a energia dos vídeos que funcionam]`
 
 **Como fala em live:**
-`[CAMPO_ANA — tom da Pietra nas lives, o que funciona, o que não funciona]`
+`[CAMPO_ANA — tom da Marcela nas lives, o que funciona, o que não funciona]`
 
 **Palavras que a Piuka NUNCA usa:**
 `[CAMPO_ANA — lista das palavras/expressões proibidas segundo Ana]`
@@ -179,9 +179,9 @@ E-commerce e lojas físicas de semijoias e acessórios femininos. Baseada em Rib
 | TikTok | — | `[CAMPO_ANA]` posts/semana | Amanda | Orgânico + TikTok Shop |
 | Meta Ads | Meta Ads Manager | `[CAMPO_ANA]` verba/mês | Ana | Campanha paga principal |
 | Google Ads | Google Ads | `[CAMPO_ANA]` | Ana | `[CAMPO_ANA — ativo ou não?]` |
-| Lives Shopee | Shopee | `[CAMPO_ANA]` por mês | Pietra | Roteiro estruturado por campanha |
-| Lives TikTok Shop | TikTok | `[CAMPO_ANA]` por mês | Pietra | Mesmo roteiro adaptado |
-| Lives Mercado Livre | ML | `[CAMPO_ANA]` por mês | Pietra | |
+| Lives Shopee | Shopee | `[CAMPO_ANA]` por mês | Marcela | Roteiro estruturado por campanha |
+| Lives TikTok Shop | TikTok | `[CAMPO_ANA]` por mês | Marcela | Mesmo roteiro adaptado |
+| Lives Mercado Livre | ML | `[CAMPO_ANA]` por mês | Marcela | |
 | Lojas físicas | — | Campanhas sazonais | Time | Cards separados no Trello |
 
 ---
@@ -192,7 +192,6 @@ E-commerce e lojas físicas de semijoias e acessórios femininos. Baseada em Rib
 |---|---|---|---|
 | Ana Beatriz | CMO / Diretora — aprova tudo | Super doc + visão estratégica completa | Só aprova — não redistribui manualmente |
 | Amanda | Social media | Calendário editorial completo: data, canal, formato, copy, orientação visual | Recebe tabela pronta — não precisa inferir nada |
-| Pietra | Assistente + Lives | Roteiro de cada live: abertura, produto, oferta, CTA, espaço pessoal | O roteiro é estrutura — energia e personalidade dela |
 | Joy | CRM | Segmentação por perfil de compra + cadência de disparos e-mail/WhatsApp | Automações de CRM já rodando — esse briefing é para campanhas novas |
 | Marcela | Assistente braço-direito (nova) | Tasks organizadas por responsável + o que cobrar de quem + quando escalar para Ana | Ainda em integração — briefing deve ser claro o suficiente para ela conduzir sem Ana |
 | Geovana | TI / Projetos IA | Não recebe sub-doc de conteúdo — acompanha implementação do sistema | Ponte entre o time e o projeto Styem |
@@ -289,7 +288,7 @@ Conduza em blocos. Não lance todas as perguntas de uma vez — faça bloco por 
 → Qual canal vai receber mais energia/verba esse mês?
 ```
 
-### Sub-Bloco 4B — Influencers e Afiliadas (Pietra)
+### Sub-Bloco 4B — Influencers e Afiliadas (Marcela)
 
 ```
 INFLUENCERS:
@@ -575,10 +574,18 @@ Gere copy para cada canal ativado no briefing. Use o tom confirmado e a voz da m
 - Mensagem de lembrete (último dia): urgência + CTA + link
 - Frases curtas, máximo 4 linhas por mensagem
 
-**Meta Ads**
-- Variação A: foco em urgência ("só até [data]", "últimas unidades")
-- Variação B: foco em benefício (o que a cliente ganha, não o que perde)
-- Cada variação: headline (máx. 40 caracteres) + texto (máx. 125 caracteres) + CTA
+**Meta Ads / Google Ads** — gerado por skill `/campanhas-ads`
+
+O planejamento completo de anúncios (campanhas, públicos, copies A/B, calendário de mídia) é feito separadamente via `/campanhas-ads`. Inserir aqui o bloco **ADS.5 — RESUMO** gerado por aquela skill:
+
+` 
+━━━━━━━━━━━━━━━━
+ADS DO MÊS — RESUMO (gerado por /campanhas-ads)
+━━━━━━━━━━━━━━━━
+[inserir output do bloco ADS.5 aqui após rodar /campanhas-ads]
+`  
+
+⚠️ Se /campanhas-ads ainda não foi rodada este mês, sinalizar com [PENDENTE — rodar /campanhas-ads].
 
 ---
 
@@ -632,7 +639,7 @@ E-MAIL 1 — DETALHAMENTO
 
 ---
 
-### 2.4 — ROTEIROS DE LIVE (Pietra)
+### 2.4 — ROTEIROS DE LIVE (Marcela)
 
 Para cada live prevista no mês:
 
@@ -652,7 +659,7 @@ Opção B: [gancho alternativo]
 
 [00:03–00:15] PRODUTO
 → O que é: [descrição direta]
-→ Como usar / como fica: [pontos que Pietra deve mencionar]
+→ Como usar / como fica: [pontos que Marcela deve mencionar]
 → Diferencial: [por que esse e não outro]
 → [ESPAÇO PIETRA — adicione histórias pessoais, como você usa, o que sente usando]
 
@@ -674,12 +681,12 @@ Opção B: [gancho alternativo]
 
 ---
 
-### 2.4B — BRIEFING INFLUENCERS/AFILIADAS (Pietra)
+### 2.4B — BRIEFING INFLUENCERS/AFILIADAS (Marcela)
 
 ```
 ━━━━━━━━━━━━━━━━
 BRIEFING INFLUENCERS/AFILIADAS — [MÊS/ANO]
-RESPONSÁVEL: Pietra
+RESPONSÁVEL: Marcela
 ━━━━━━━━━━━━━━━━
 
 INFLUENCERS DO MÊS:
@@ -702,9 +709,9 @@ AFILIADAS DO MÊS:
 
 → Missão de posts diários: [descrição da missão + o que postar + CTA esperado]
 → Competição de venda: [sim/não]
-  Se sim: período [início → fim] | métrica [ex: total de vendas / número de pedidos] | prêmio [descrição] | como comunicar no grupo [orientação para Pietra]
+  Se sim: período [início → fim] | métrica [ex: total de vendas / número de pedidos] | prêmio [descrição] | como comunicar no grupo [orientação para Marcela]
 → Mensagem de abertura do mês para o grupo WhatsApp:
-  [copy pronta para Pietra enviar — tom direto, animado, com a missão do mês clara]
+  [copy pronta para Marcela enviar — tom direto, animado, com a missão do mês clara]
 → Conteúdo especial para afiliadas: [produto para foto? Kit especial? Acesso antecipado a lançamento?]
 → Destaque do mês: [afiliada ou ação que merece reconhecimento público no grupo ou stories]
 ```
@@ -956,7 +963,7 @@ LEGENDA DE TIPOS:
 → CAMPANHA — ação principal do mês
 → CAMPANHA SECUNDÁRIA — promoção pontual ou data comemorativa menor
 → SAZONAL — dia sem campanha ativa: usar conteúdo evergreen ou data menor com direcional
-→ LIVE — dia de live (Pietra) — Amanda apoia com posts de divulgação
+→ LIVE — dia de live (Marcela) — Amanda apoia com posts de divulgação
 
 OBSERVAÇÕES:
 → [qualquer instrução específica para Amanda nesta campanha]
@@ -986,7 +993,7 @@ ARTES FREELA DO MÊS:
 
 ---
 
-**PIETRA — LIVES + INFLUENCERS + AFILIADAS**
+**MARCELA — LIVES + INFLUENCERS + AFILIADAS**
 
 ```
 LIVES DO MÊS:
@@ -995,7 +1002,7 @@ LIVES DO MÊS:
 | [data] | [plataforma] | [produto] | [x min] |
 
 → Roteiros completos na seção 2.4
-→ Preencha os campos [ESPAÇO PIETRA] com seus comentários pessoais antes de cada live
+→ Preencha os campos [ESPAÇO MARCELA] com seus comentários pessoais antes de cada live
 → O roteiro é orientação — adapte ao que está acontecendo ao vivo
 
 INFLUENCERS E AFILIADAS:
@@ -1085,7 +1092,7 @@ Gere uma task por entregável no formato:
 ```
 ━━━━
 CARD: [título da task — claro o suficiente para qualquer pessoa entender]
-RESPONSÁVEL: [Amanda / Artes IA / Artes Freela / Pietra / Joy / Marcela]
+RESPONSÁVEL: [Amanda / Artes IA / Artes Freela / Joy / Marcela]
 DATA LIMITE: [data]
 LISTA: Campanhas do Mês
 DESCRIÇÃO:
@@ -1126,7 +1133,7 @@ Após todos os blocos, consolide em JSON para registro e uso em integrações fu
     "instagram_stories": [],
     "tiktok": [],
     "whatsapp": { "lancamento": "", "lembrete": "" },
-    "meta_ads": { "variacao_a": {}, "variacao_b": {} }
+    "ads": { "gerado_por": "/campanhas-ads", "status": "pendente", "resumo": "" }
   },
   "emails": [],
   "lives": [],
@@ -1213,7 +1220,6 @@ Após todos os blocos, consolide em JSON para registro e uso em integrações fu
   "sub_docs": {
     "amanda": { "calendario": [] },
     "artes": { "artes_ia": [], "artes_freela": [] },
-    "pietra": { "lives": [], "influencers": [], "afiliadas_missao": "" },
     "joy": { "segmentos": [], "cadencia": [] },
     "marcela": { "tasks": [], "cobrar_de": [], "loja_fisica_tasks": [] }
   },
@@ -1454,3 +1460,9 @@ O script criará automaticamente:
 | Morumbi | 4 unid |
 | RioPreto Shopping | 3 unid |
 | Ribeirão Preto | 4 unid |
+
+
+
+
+
+
