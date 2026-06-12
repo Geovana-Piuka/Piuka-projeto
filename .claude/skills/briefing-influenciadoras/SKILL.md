@@ -16,16 +16,16 @@ O fluxo é: coletar informações → preencher template HTML com os dados e ima
 
 ---
 
-## Passo 0 — Leitura das imagens (SEMPRE PRIMEIRO)
+## Passo 0 — Leitura das imagens (feita APÓS confirmar o texto, antes de gerar o PDF)
 
-**Antes de rodar esta skill**, as fotos da influenciadora devem estar na pasta:
+**As fotos da influenciadora devem estar na pasta:**
 `.claude/skills/briefing-influenciadoras/imagens-briefing-influenciadoras/`
 
-Para cada novo briefing: remova as fotos do briefing anterior e coloque as novas nessa pasta. A skill identifica automaticamente qual é capa, produto, editorial e detalhe pelo visual.
+Para cada novo briefing: coloque as fotos nessa pasta antes de gerar. A skill identifica automaticamente qual é capa, produto, editorial e detalhe pelo visual.
 
-**Antes de fazer qualquer pergunta**, leia todas as imagens disponíveis nessa pasta.
+**A leitura das imagens acontece só depois que o usuário confirmar o texto do briefing.** Não leia as imagens antes disso.
 
-Use Glob para listar os arquivos e depois leia cada imagem visualmente com Read.
+Ao ler as imagens, use Glob para listar os arquivos e depois leia cada imagem visualmente com Read.
 
 **LOGO OBRIGATÓRIA:** Sempre leia e converta para base64 o arquivo `LogoPiuka-removebg-preview.png` desta pasta. Guarde internamente como `[BASE64_LOGO]` — será usado em 3 lugares no HTML (capa, rodapé pág 2, rodapé pág 3).
 
@@ -40,58 +40,97 @@ Para cada imagem encontrada, classifique internamente em uma das categorias:
 
 Se não houver imagem DETALHE, use a EDITORIAL no lugar de `[BASE64_FOTO_DETALHE]`.
 
+**Capas fixas por influenciadora conhecida:**
+
+Após identificar o nome da influenciadora, verifique se ela está na lista abaixo e use a capa fixa correspondente como `[BASE64_FOTO_CAPA]`, independentemente de outras imagens na pasta:
+
+| Influenciadora | Arquivo de capa fixo |
+|---|---|
+| Ariane Cânovas / Ari / Ariane | `ariane-canovas.jpg` |
+| Fe Tumas / Fetumas / Fernanda Tumas | `fetumas-capa.jpg` |
+| Thais Aguiar / Thais | `Thais-capa.png` |
+
+Para influenciadoras fora dessa lista: classificar visualmente como de costume.
+
 Se a pasta estiver **vazia**, continue e avise:
 > "Não encontrei imagens na pasta. O briefing será gerado com placeholders — você pode substituir depois."
 
-Se encontrar imagens, informe antes de prosseguir:
-> "Encontrei [X] imagens: [lista com categoria de cada uma]. Vou usar assim. Vamos continuar?"
+---
+
+## Fluxo de perguntas — tudo em um bloco só
+
+Primeiro pergunte apenas o nome da influenciadora. Com base na resposta, determine se ela é uma das **influenciadoras fixas** (Ariane Cânovas, Fe Tumas, Thais Aguiar) ou uma **nova influenciadora** e envie o bloco correspondente.
 
 ---
 
-## Fluxo de perguntas — faça em blocos, um de cada vez
+### Se for Ariane Cânovas, Fe Tumas ou Thais Aguiar
 
-### Bloco 1 — Identificação da influenciadora
+Dados já definidos automaticamente — não pergunte:
+- **Capa:** arquivo fixo da pasta (ariane-canovas.jpg / fetumas-capa.jpg / Thais-capa.png)
+- **Cupom:** arianepiuka10 / fetumaspiuka10 / thaispiuka10
+- **Benefício do cupom:** Garante 10% OFF em todo o site
+- **Links:** https://piuka.com.br/ (exibir como `piuka.com` no briefing)
 
-> Vamos montar o briefing! Me conta:
-> 1. Qual o nome da influenciadora?
-> 2. Qual a campanha ou mês? (ex: Campanha Mães, Maio 2026)
-> 3. Ela já foi rosto de alguma coleção ou já trabalhou com a Piuka antes? Se sim, como?
-> 4. Tem algum detalhe pessoal dela que a Piuka já conhece e pode mencionar? (ex: "você ama pérolas", "você não tem medo de peças marcantes")
+Envie apenas:
 
-### Bloco 2 — Mix de produtos
-
-> Agora me conta sobre os produtos:
-> Liste os nomes das peças do mix, uma por linha:
-> (ex: Brinco Cathy Coração com Zirconias)
+> Me passa as infos do briefing:
 >
-> Vou criar a descrição de cada peça no tom Piuka com base no nome e tipo.
-
-### Bloco 3 — Campanha e data de lançamento
-
-> Mais algumas infos:
-> 1. Qual a data de lançamento das peças? (ex: "dia 20", "dia 16/04")
-> 2. Tem algum contexto especial da campanha para mencionar? (ex: Campanha Mães, lançamento de coleção...)
-> 3. Qual o cupom de desconto exclusivo dela? (ex: ARICANOVAS10)
-> 4. Qual o texto do benefício do cupom? (ex: "Garante 10% OFF em todo o site" ou "Garante +10% OFF extra sobre os descontos do site!")
-
-### Bloco 4 — Links
-
-> Por último, me passa os 3 links do briefing (pode deixar em branco qualquer um — usamos "clique para acessar seu link." como placeholder):
-> 1. **Link da foto de introdução** — aparece sobre a foto editorial na página 2
-> 2. **Link do card "seu link"** — aparece no quadrado de destaque na página 3
-> 3. **Link da foto final** — aparece sobre a foto detalhe/encerramento na página 3
-
-Guarde cada um internamente como `[LINK_EDITORIAL]`, `[LINK_CARD]` e `[LINK_DETALHE]`. Se em branco, usar o texto `clique para acessar seu link.` no respectivo lugar.
+> 1. Campanha ou mês (ex: Campanha Mães, Maio 2026)
+> 2. Mix de produtos — liste os nomes das peças, uma por linha
+> 3. Data de lançamento (ex: dia 20, dia 16/04)
+> 4. Contexto especial da campanha?
+> 5. Texto da introdução — o que você quer apresentar nesse mix? (ex: "para esse mix vamos mostrar nosso novo lançamento de brincos da coleção Aura")
 
 ---
 
-## Resumo antes de gerar
+### Se for uma nova influenciadora
 
-Após coletar tudo, apresente um resumo compacto:
+Envie:
 
-> "Confirma? Vou gerar o briefing para **[NOME]** — **[CAMPANHA]** com [X] peças no mix e cupom **[CUPOM]**."
+> Me passa as infos do briefing:
+>
+> **Sobre a influenciadora:**
+> 1. Campanha ou mês (ex: Campanha Mães, Maio 2026)
+> 2. Ela já trabalhou com a Piuka antes? Se sim, como?
+> 3. Algum detalhe pessoal dela que a Piuka conhece? (ex: "ama pérolas", "não tem medo de peças marcantes")
+>
+> **Mix de produtos** — liste os nomes das peças, uma por linha
+>
+> **Campanha:**
+> 4. Data de lançamento (ex: dia 20, dia 16/04)
+> 5. Contexto especial da campanha?
+> 6. Cupom exclusivo dela (ex: NOMEPIUKA10)
+> 7. Texto do benefício do cupom (ex: "Garante 10% OFF em todo o site")
+> 8. Texto da introdução — o que você quer apresentar nesse mix?
 
-Só gere o documento após confirmação.
+**Links para novas influenciadoras:** sempre `https://piuka.com.br/` (exibir como `piuka.com` no briefing). Não perguntar.
+
+---
+
+`[LINK_EDITORIAL]`, `[LINK_CARD]` e `[LINK_DETALHE]` → sempre `https://piuka.com.br/`.
+
+---
+
+## Prévia do texto antes de gerar
+
+Após o usuário responder, **não gere o PDF ainda**. Envie no chat apenas o texto do briefing para conferência:
+
+```
+Confere o texto antes de eu gerar o PDF:
+
+**Introdução:**
+[TEXTO_INTRODUCAO]
+
+**Mix de produtos:**
+[lista com nome e descrição de cada peça]
+
+**Chamada:**
+[TEXTO_CHAMADA]
+
+Cupom: [CUPOM] — [TEXTO_BENEFICIO_CUPOM]
+```
+
+Só após o usuário confirmar o texto, leia as imagens da pasta e gere o PDF.
 
 ---
 
@@ -108,15 +147,15 @@ Antes de montar o HTML, defina internamente cada valor:
 | `[BASE64_FOTO_EDITORIAL]` | base64 da imagem EDITORIAL — se não houver, substituir pela div placeholder abaixo |
 | `[BASE64_FOTO_DETALHE]` | base64 da imagem DETALHE — se não houver, usar EDITORIAL; se nenhuma, usar div placeholder |
 | `[NOME]` | Nome da influenciadora |
-| `[TEXTO_INTRODUCAO]` | Parágrafo personalizado (tom Piuka: próximo, caloroso, sofisticado) — sem travessões (--) |
+| `[TEXTO_INTRODUCAO]` | EXATAMENTE o texto fornecido pelo usuário, prefixado com o nome/apelido da influenciadora. NÃO inventar, NÃO complementar, NÃO reescrever. Ver regra obrigatória abaixo. |
 | `[IMGS_PRODUTOS]` | Um `<img>` por produto PNG (ver regras abaixo) |
 | `[LISTA_PRODUTOS]` | Um `<li>` por produto (ver regras abaixo) |
 | `[TEXTO_CHAMADA]` | Texto de chamada, personalizando com nome da campanha e data |
 | `[CUPOM]` | Código do cupom |
 | `[TEXTO_BENEFICIO_CUPOM]` | Texto coletado no Bloco 3 |
-| `[LINK_EDITORIAL]` | Link sobre a foto editorial (pág 2) — se vazio: `clique para acessar seu link.` |
-| `[LINK_CARD]` | Link do card "seu link" (pág 3) — se vazio: `clique para acessar seu link.` |
-| `[LINK_DETALHE]` | Link sobre a foto final (pág 3) — se vazio: `clique para acessar seu link.` |
+| `[LINK_EDITORIAL]` | Sempre `https://piuka.com.br/` — exibir no HTML como `piuka.com` |
+| `[LINK_CARD]` | Sempre `https://piuka.com.br/` — exibir no HTML como `piuka.com` |
+| `[LINK_DETALHE]` | Sempre `https://piuka.com.br/` — exibir no HTML como `piuka.com` |
 
 **Regras para `[IMGS_PRODUTOS]`:**
 - **1 produto:** `<img src="..." style="width:60%;margin:0 auto;max-height:220px;object-fit:contain;background:transparent;">`
@@ -133,20 +172,25 @@ Antes de montar o HTML, defina internamente cada valor:
 <div style="width:100%;height:220px;background:#f0e8ee;border-radius:12px 12px 0 0;"></div>
 ```
 
-**Introdução — tom obrigatório:**
-- **Máximo 3-4 frases.** Texto curto e direto ao ponto.
-- Chamar pelo apelido/primeiro nome
-- Referenciar histórico com a Piuka se houver
-- Conectar o mix ao estilo e gosto pessoal dela — mostrando que foi curado pensando nela, mas como algo que ela vai **apresentar e divulgar**, não modelar
-- **NUNCA escrever como se ela fosse o rosto/modelo da campanha** — frases como "seu nome precisava estar nessa história", "a coleção nasceu para você", "ninguém melhor do que você para ser o rosto" estão proibidas
-- A influenciadora é **parceira de divulgação**: apresenta e recomenda as peças ao público dela
-- Falar do mix com entusiasmo e afeto, exaltando as peças e conectando ao gosto dela
-- **NUNCA usar travessões (--) ou traços longos**
+**⛔ INTRODUÇÃO — REGRA CRÍTICA INVIOLÁVEL:**
 
-Exemplos reais:
-- "Ari, que alegria ter você de volta! Para essa coleção, preparamos um mix que é a sua cara: peças com formato de coração, zircônias que brilham e aquele toque dourado que você já sabe usar tão bem. A Coleção Cathy nasceu para mulheres que não têm medo de se expressar com delicadeza e força ao mesmo tempo, e a gente sabia que você precisava apresentar essa história. Bora juntas nessa!"
-- "Oi oi Fe, o mix dessa vez é uma novidade emocionante! Estamos lançando nossa Campanha Mães e preparamos um mix que une tudo que você ama, elegância e claro: pérolas, lançadas agora no dia 16/04."
-- "Mi, para essa seleção, decidimos mergulhar na tendência que está dominando as passarelas e o street style internacional: o Mix de Banhos! Sabemos que você ama peças marcantes e que trazem personalidade para o look, por isso trouxemos semijoias que provam como a mistura do Dourado com o Ródio Branco cria um visual maximalista, ultra moderno e, acima de tudo, muito elegante."
+O usuário fornece o corpo do texto. A skill APENAS coloca o nome/apelido da influenciadora no início. Nada mais.
+
+Formato exato: `[NOME/APELIDO], [texto exato fornecido pelo usuário].`
+
+**PROIBIDO inventar qualquer frase que o usuário não digitou.** Exemplos do que NUNCA fazer:
+- ❌ "colar que vai elevar qualquer look do seu dia a dia"
+- ❌ "essa parceria já é nossa favorita"
+- ❌ "preparamos um mix pensado no seu estilo"
+- ❌ "para você apresentar ao seu público com o seu jeito especial"
+- ❌ qualquer elogio, estilo, história ou complemento não fornecido pelo usuário
+
+Exemplo correto:
+- Usuário digita: "para esse mix vamos mostrar nosso novo lançamento de brincos da coleção Aura"
+- Resultado correto: "Ari, para esse mix vamos mostrar nosso novo lançamento de brincos da coleção Aura."
+- Resultado ERRADO: "Ari, para esse mix vamos mostrar nosso novo lançamento de brincos da coleção Aura — peças que combinam com o seu estilo único."
+
+**Nunca usar travessões (--) ou traços longos.**
 
 ---
 
@@ -207,7 +251,7 @@ Exemplos reais:
 <div class="pagina-capa">
   <img class="capa-foto" src="data:image/jpeg;base64,[BASE64_FOTO_CAPA]">
   <div class="capa-overlay">
-    <div class="capa-titulo">Briefing<br>conteudos |<br>[NOME]</div>
+    <div class="capa-titulo">Briefing<br>conte&#250;dos |<br>[NOME]</div>
     <img src="data:image/png;base64,[BASE64_LOGO]" style="height:28px;object-fit:contain;" alt="Piuka">
   </div>
 </div>
