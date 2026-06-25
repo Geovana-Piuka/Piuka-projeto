@@ -81,6 +81,80 @@ const TASKS_EMBUTIDAS = [
   },
 ];
 
+// ── Tabelas de tamanho por tipo de peça ──────────────────────────────────────
+
+const TABELAS_TAMANHO = {
+  painel_vm: `**📐 Painel de VM — quantidade por loja:**
+| Loja | Qtd |
+|---|---|
+| Campinas | 33 |
+| Iguatemi Rio Preto | 18 |
+| Morumbi | 11 |
+| Rio Preto Shopping | 21 |
+| Ribeirão Preto | 14 |`,
+
+  pvc_10x15: `**📐 Placas PVC 10x15cm — quantidade por loja:**
+| Loja | Qtd |
+|---|---|
+| Campinas | 21 |
+| Iguatemi Rio Preto | 14 |
+| Morumbi | 8 |
+| Rio Preto Shopping | 14 |
+| Ribeirão Preto | 8 |`,
+
+  pvc_21x15: `**📐 Placas PVC 21x15cm — quantidade por loja:**
+| Loja | Qtd |
+|---|---|
+| Campinas | 12 |
+| Iguatemi Rio Preto | 4 |
+| Morumbi | 3 |
+| Rio Preto Shopping | 7 |
+| Ribeirão Preto | 6 |`,
+
+  acrilico_quadrinho: `**📐 Acrílico Quadrinho 15x15cm (esp. 3mm) — quantidade por loja:**
+| Loja | Qtd |
+|---|---|
+| Campinas | 4 |
+| Iguatemi Rio Preto | 3 |
+| Morumbi | 4 |
+| Rio Preto Shopping | 3 |
+| Ribeirão Preto | 4 |`,
+
+  acrilico_caixa: `**📐 Acrílico Caixa — medidas e quantidade por loja:**
+| Medida | Loja | Qtd |
+|---|---|---|
+| 60x60cm | Ribeirão Preto | 1 |
+| 30x30cm | Morumbi | 2 |
+| 1mx40cm | Morumbi | 1 |
+| 30x35cm | Campinas | 3 |`,
+
+  banner_vitrine: `**📐 Banner / Acrílico Vitrine — medidas por loja:**
+| Loja | Medida |
+|---|---|
+| Iguatemi Rio Preto | 70L x 1,00A |
+| Iguatemi Campinas | 94L x 75A — Arco |
+| Morumbi Shopping | 57L x 1,12A — Arco |
+| Morumbi Shopping (lateral esq.) | 62x60 |
+| Rio Preto Shopping | 59L x 1,17A — Arco |
+| Ribeirão Shopping | 78L x 96A — Arco |`,
+};
+
+function tabelasPorTipo(texto) {
+  const t = (texto || '').toLowerCase();
+  const tabelas = [];
+  if (t.includes('painel') && t.includes('vm'))            tabelas.push(TABELAS_TAMANHO.painel_vm);
+  if (t.includes('pvc') && t.includes('10x15'))            tabelas.push(TABELAS_TAMANHO.pvc_10x15);
+  if (t.includes('pvc') && t.includes('21x15'))            tabelas.push(TABELAS_TAMANHO.pvc_21x15);
+  if (t.includes('pvc') && !t.includes('10x15') && !t.includes('21x15')) {
+    tabelas.push(TABELAS_TAMANHO.pvc_10x15);
+    tabelas.push(TABELAS_TAMANHO.pvc_21x15);
+  }
+  if (t.includes('quadrinho'))                             tabelas.push(TABELAS_TAMANHO.acrilico_quadrinho);
+  if (t.includes('acrílico caixa') || t.includes('acrilico caixa')) tabelas.push(TABELAS_TAMANHO.acrilico_caixa);
+  if (t.includes('vitrine') || t.includes('banner'))       tabelas.push(TABELAS_TAMANHO.banner_vitrine);
+  return tabelas;
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function loadEnv(filePath) {
@@ -224,17 +298,21 @@ async function main() {
       continue;
     }
 
-    const desc = [
-      `→ O que fazer: ${t.fazer}`,
-      `→ Material de referência: ${t.material}`,
-      `→ Quando escalar para Ana: ${t.escalar}`,
-    ].join('\n');
+    const textoParaBusca = `${t.titulo} ${t.fazer} ${t.material} ${t.escalar || ''}`;
+    const tabelasLoja = tabelasPorTipo(textoParaBusca);
+    const descParts = [
+      `→ **O que fazer:** ${t.fazer}`,
+      `→ **Material de referência:** ${t.material}`,
+      `→ **Quando escalar para Ana:** ${t.escalar}`,
+    ];
+    if (tabelasLoja.length) descParts.push(...tabelasLoja);
+    const desc = descParts.join('\n\n');
 
     const payload = {
       name:  t.titulo,
       idList,
       desc,
-      pos:   'bottom',
+      pos:   'top',
     };
 
     const due = parseDateBR(t.data);
@@ -257,7 +335,7 @@ async function main() {
           if (attachment && attachment.id) {
             await apiPut(`/cards/${card.id}`, {
               'cover[idAttachment]': attachment.id,
-              'cover[brightness]': 'light',
+              'cover[brightness]': 'dark',
               'cover[size]': 'full',
             });
             console.log(`     🖼️  Cover: ${t.cover_image}`);
@@ -326,7 +404,8 @@ async function criarCardsFreela(demandas) {
   let erros = 0;
 
   for (const d of demandas) {
-    const desc = [
+    const tabelasLoja = tabelasPorTipo(`${d.demanda} ${d.observacoes || ''}`);
+    const descParts = [
       `**LOJA:** ${d.loja || '—'}`,
       `**DEMANDA:** ${d.demanda || '—'}`,
       `**MEDIDA:** ${d.medida || '—'}`,
@@ -335,7 +414,9 @@ async function criarCardsFreela(demandas) {
       `**ARQUIVO/FOTO BASE:** ${d.arquivo_foto_base || '—'}`,
       `**STATUS:** ${d.status || 'A fazer'}`,
       `**OBSERVAÇÕES:** ${d.observacoes || '—'}`,
-    ].join('\n');
+    ];
+    if (tabelasLoja.length) descParts.push(...tabelasLoja);
+    const desc = descParts.join('\n\n');
 
     const payload = {
       name:   `[${d.loja || 'Loja'}] ${d.demanda}`,

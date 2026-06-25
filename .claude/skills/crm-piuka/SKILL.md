@@ -34,6 +34,38 @@ O CRM do briefing cobre **apenas campanhas novas** do mês.
 
 ---
 
+## Padrão de copy — WhatsApp marketing
+
+Estes textos são referência de **tom, estrutura e uso de emoji** da Piuka — não são templates fixos. Quando o usuário pedir o texto completo de um disparo de WhatsApp (fora da cadência resumida do CRM.2), gerar copy nova seguindo o mesmo estilo, adaptada ao produto/oferta/data reais da campanha.
+
+Características do padrão Piuka:
+- Abre com título/chamada em maiúsculas ou emoji de destaque (✨💖🎁)
+- Frase de contexto curta (1-2 linhas), tom próximo e caloroso, às vezes com nome do consumidor
+- Lista de benefícios com emoji-bullet (💰 cashback, 🚚 frete grátis, 🎁 brinde, 📦 pedido mínimo)
+- CTA de urgência curto antes do fechamento ("Garanta antes que esgote", "Corre, é só hoje")
+- Fechamento opcional "Beijos" / "Beijos com carinho, Equipe Piuka 💖" — usado em disparos de tom mais pessoal, não em todos
+- Cupom sempre em destaque, isolado ou em linha própria
+
+Categorias de gatilho (usar a que combinar com o objetivo do disparo):
+
+| Categoria | Quando usar | Exemplo de referência |
+|---|---|---|
+| Mix/look do dia | Destacar combinação de peças usada por influencer/modelo | "PIUKA MIX DO DIA" — Choker Alice + Colar Personalizado |
+| Cupom/desconto por tempo limitado | Campanha de cupom com prazo curto (1 dia ou poucos dias) | "6.6 PIUKA NO AR" — cupom PIUKA0606, só hoje |
+| Desconto por coleção | % off em coleção específica durante um período | "10% OFF Personalizados", "Coleção Glam 10% OFF" |
+| Lançamento de coleção | Chegada de coleção nova/exclusiva | "Fe Tumas & Piuka" — lançamento exclusivo e limitado |
+| Reposição de estoque | Peça que esgotou e voltou — aviso individual ao consumidor | "O colar mais desejado... voltou para o estoque" |
+| Compre e ganhe | Brinde a partir de valor mínimo de compra | "COMPRE E GANHE PIUKA" — trio de brincos no Dia dos Namorados |
+| Atacado/B2B | Disparo para revendedoras (Atacado Piuka), foco em pedido mínimo e tendência | "Coleção Aura" — atacado, pedido mínimo R$900 |
+
+Regras ao gerar copy nova:
+→ Manter linguagem da campanha do mês (puxar nome da coleção/produto do contexto já coletado no Bloco 1)
+→ Cashback e frete grátis só entram se forem regra ativa do mês — confirmar com Joy/Ana antes de incluir como padrão
+→ Disparo de atacado nunca usa tom "Beijos" pessoal — manter tom mais direto/comercial
+→ Reposição de estoque é o único tipo enviado individualmente (não é disparo em massa) — sinalizar isso na cadência
+
+---
+
 ## FASE 1 — EXTRAÇÃO
 
 Conduzir em blocos. Esperar resposta antes de avançar para o próximo.

@@ -1,146 +1,79 @@
 [
   {
-    "titulo": "Enviar kit Coleção Namorados para Ariane Cânovas",
-    "resp": "Pietra",
+    "titulo": "Lançamento Collab Ariane — Rivieras + Colar Inicial",
+    "resp": "Amanda",
+    "data": "01/06/2026",
+    "lista": "Campanhas do Mês",
+    "fazer": "Publicar post de lançamento da collab Ariane Cânovas x Piuka no feed e stories. Usar copy do briefing seção 2.2 — Instagram Feed opção 1. Sequência de 3 frames nos stories.",
+    "material": "Seção 2.2 do briefing + sub-doc Amanda + triptych gerado via /imagens-piuka",
+    "escalar": "Se a arte ainda não estiver aprovada até 30/05 — avisar Ana com 2 dias de antecedência",
+    "cover_image": "Captura de tela 2026-06-15 093349.png"
+  },
+  {
+    "titulo": "Agendar e-mails do mês — Namorados (21 disparos)",
+    "resp": "Joy",
     "data": "30/05/2026",
     "lista": "Campanhas do Mês",
-    "fazer": "Montar e enviar o kit completo da Coleção Namorados 2026 para Ariane Cânovas (@arianecanovas) — conjunto colar + brinco zircônia, pulseira riviera e anel solitário",
-    "material": "Seção 5 do briefing (briefing_namorados_2026.docx) — lista de produtos do kit e prazo de publicação esperado",
-    "escalar": "Se o kit não puder ser enviado até 30/05 ou se houver falta de estoque dos produtos do kit"
+    "fazer": "Agendar os 21 e-mails da campanha Namorados no RevSend conforme cadência do briefing. Verificar subject A/B, pré-header e HTML de cada disparo antes de agendar.",
+    "material": "Seção 2.3 do briefing (pacote de e-mails) + sub-doc Joy + HTMLs gerados via /emails-piuka",
+    "escalar": "Se algum HTML não renderizar corretamente no RevSend ou se faltarem imagens para o hero",
+    "cover_image": "Captura de tela 2026-06-15 093755.png"
   },
   {
-    "titulo": "Sessão fotográfica — Fotos de Mídia (produto puro) 03/06",
-    "resp": "Marcela",
-    "data": "03/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Confirmar com o fotógrafo a sessão e separar todos os produtos da Coleção Namorados 2026 para foto: conjunto colar + brinco zircônia, conjunto colar + brinco pérola, pulseira riviera (2 cores), anel solitário (2 versões). Estilo: produto puro, fundo neutro off-white.",
-    "material": "Seção 6 do briefing (briefing_namorados_2026.docx) — briefing fotográfico completo",
-    "escalar": "Se fotógrafo não confirmar até 02/06 ou se prazo de entrega das fotos comprometer as artes IA (fotos devem chegar até 04/06)"
-  },
-  {
-    "titulo": "Sessão fotográfica — Fotos Humanizadas 04/06",
-    "resp": "Marcela",
-    "data": "04/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Acompanhar sessão humanizada (produto no corpo, sem rosto, fundo neutro) com mesmos produtos da sessão 03/06 + look completo (conjunto + pulseira + anel juntos). Garantir entrega das fotos até 05/06.",
-    "material": "Seção 6 do briefing (briefing_namorados_2026.docx) — briefing fotográfico",
-    "escalar": "Se prazo de entrega das fotos humanizadas comprometer o flatlay (arte IA Peça 3 — entrega 05/06) ou as artes da freela (entrega 05/06)"
-  },
-  {
-    "titulo": "Amanda — Calendário editorial Instagram + TikTok (02–12/06)",
+    "titulo": "Calendário Editorial Junho — Instagram + TikTok",
     "resp": "Amanda",
-    "data": "01/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Montar o calendário de posts no tool de agendamento com as copies e orientações visuais do sub-doc. 15 posts ao longo da campanha entre feed, stories e TikTok. Dias 05/06 e 08/06 são sazonais — usar conteúdo evergreen.",
-    "material": "Seção 7 do briefing (briefing_namorados_2026.docx) — sub-doc Amanda, tabela completa por data, canal, formato e copy",
-    "escalar": "Arte que não chegou a tempo de agendar ou dúvida de copy em situação não coberta pelo briefing"
-  },
-  {
-    "titulo": "Artes IA — Triptych Ariane Cânovas (lançamento)",
-    "resp": "Amanda",
-    "data": "01/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Gerar triptych collab_panels (3 painéis, 1:1, 1080x1080px) via /imagens-piuka com as fotos da Ariane. Headline: AMOR QUE BRILHA | Handwritten: Ariane Cânovas x Piuka | CTA: VER AGORA (outline preto). Fundo cinza neutro #F4F2F0 contínuo entre os painéis.",
-    "material": "Seção 6 do briefing (briefing_namorados_2026.docx) — PEÇA 1 do pacote de imagens + fotos da Ariane quando chegarem",
-    "escalar": "Se fotos da Ariane não chegarem até 31/05 — avisar Ana para cobrar da influencer"
-  },
-  {
-    "titulo": "Artes IA — Flatlay Coleção Namorados 2026",
-    "resp": "Amanda",
-    "data": "05/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Gerar flatlay produto_flatlay_4x5 (1080x1350px) via /imagens-piuka após receber fotos da sessão humanizada (04/06). Headline: COLEÇÃO NAMORADOS 2026 | Handwritten: O presente que ela não tira mais | CTA: VER AGORA (dourado). 4 peças sobre tecido camurça nude ou mármore branco.",
-    "material": "Seção 6 do briefing (briefing_namorados_2026.docx) — PEÇA 3 do pacote de imagens + fotos da sessão 04/06",
-    "escalar": "Se sessão humanizada atrasar e comprometer a entrega do flatlay"
-  },
-  {
-    "titulo": "Artes IA — Single editorial A Favorita da Ariane",
-    "resp": "Amanda",
-    "data": "07/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Gerar single_1x1_editorial (1080x1080px) via /imagens-piuka com foto do conteúdo da Ariane (que chegará entre 02–08/06). Headline: A FAVORITA DA ARIANE | Handwritten: Ariane Cânovas x Piuka | CTA: VER A COLEÇÃO (sólido preto).",
-    "material": "Seção 6 do briefing (briefing_namorados_2026.docx) — PEÇA 4 do pacote de imagens + conteúdo gerado pela Ariane",
-    "escalar": "Se conteúdo da Ariane não chegar até 06/06 — a arte precisa estar pronta para o post de 09/06"
-  },
-  {
-    "titulo": "Artes IA — Story anúncio live + PVC 10x15 + Acrílico Quadrinho",
-    "resp": "Amanda",
-    "data": "09/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Gerar: (1) story_9x16 anúncio live (1080x1920px) via /imagens-piuka — HOJE TEM LIVE | 10/06 | 20h | Shopee | CTA: ATIVAR LEMBRETE; (2) PVC 10x15cm PDV via /pvc — 65 unidades; (3) Acrílico Quadrinho 15x15cm via /pvc — 18 unidades. Story: entrega até 09/06. PVC e acrílico: entrega até 05/06.",
-    "material": "Seção 6 do briefing (briefing_namorados_2026.docx) — PEÇA 2, briefings PVC e acrílico com quantidades por loja",
-    "escalar": "Dúvida de conteúdo antes de enviar para impressão — confirmar com Marcela antes"
-  },
-  {
-    "titulo": "Joy — Configurar cadência de 8 e-mails no RevSend",
-    "resp": "Joy",
-    "data": "01/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Programar os 8 disparos no RevSend com segmentação e cadência definidas: Segmento A (ativas 90 dias) e-mail + WhatsApp; Segmento B (inativas) e-mail reativação; Segmento C (leads) e-mail entrada. Disparos em 02/06, 04/06, 06/06, 08/06, 09/06, 10/06, 11/06 e 12/06.",
-    "material": "Seção 3 e seção 7 do briefing (briefing_namorados_2026.docx) — tabela de e-mails com assuntos A/B, pré-headers, blocos e segmentação",
-    "escalar": "Dúvida de segmentação ou HTML que precisa de aprovação da Ana antes de agendar"
-  },
-  {
-    "titulo": "Pietra — Briefing afiliadas: mensagem de abertura + regras da competição",
-    "resp": "Pietra",
     "data": "02/06/2026",
     "lista": "Campanhas do Mês",
-    "fazer": "Enviar mensagem de abertura de campanha para o grupo WhatsApp das afiliadas (copy pronta no briefing). Comunicar missão do mês: 1 story por dia de 02/06 a 12/06. Comunicar competição de venda: período, métrica e prêmio (kit nova coleção julho + destaque no @piuka).",
-    "material": "Seção 5 do briefing (briefing_namorados_2026.docx) — copy da mensagem de abertura e regras da competição",
-    "escalar": "Dúvida de afiliada sobre mecânica da competição que não esteja no briefing"
+    "fazer": "Executar calendário editorial completo de junho: posts diários feed + stories + TikTok. Dias sazonais (16, 17, 23, 24, 30/06) usar conteúdo evergreen. TikTok: estilo espontâneo, sem roteiro fechado.",
+    "material": "Sub-doc Amanda + seção 2.2 do briefing (copies por canal)",
+    "escalar": "Se uma data conflitar com algo não previsto ou se precisar de arte que ainda não foi entregue",
+    "cover_image": "Captura de tela 2026-06-15 093857.png"
   },
   {
-    "titulo": "Pietra — Ranking de afiliadas (06/06 e 10/06)",
-    "resp": "Pietra",
-    "data": "06/06/2026",
+    "titulo": "Briefing de Artes IA — Junho (stories, carrosséis, e-mail hero)",
+    "resp": "Amanda",
+    "data": "28/05/2026",
     "lista": "Campanhas do Mês",
-    "fazer": "Acessar relatório de vendas por afiliada e postar ranking no grupo WhatsApp no dia 06/06. Repetir no dia 10/06 com atualização final antes do encerramento (12/06).",
-    "material": "Relatório de afiliadas na plataforma + seção 5 do briefing para referência das regras",
-    "escalar": "Empate técnico no ranking ou afiliada com dúvida que vire conflito"
+    "fazer": "Gerar artes IA do mês via /imagens-piuka e /carrossel: triptych Ariane (1:1), story live Shopee (9:16), flatlay Rivieras (4:5), editorial Fe Tumas (1:1). Entregar arquivos aprovados até 28/05 para não travar impressão de loja física.",
+    "material": "Seção 2.5A do briefing + pacote de imagens seção 2.5C + sub-doc Artes",
+    "escalar": "Se falta foto de referência aprovada ou se Ana ainda não subiu as imagens no Freepik",
+    "cover_image": "Captura de tela 2026-06-15 094012.png"
   },
   {
-    "titulo": "Live Shopee — 10/06 — Coleção Namorados 2026",
-    "resp": "Pietra",
-    "data": "10/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Conduzir live de 45 min conforme roteiro (seção 4 do briefing). Cupom LIVEPIUKA10 — 10% OFF válido só durante a live. Preencher campos [ESPAÇO PIETRA] antes de entrar ao vivo. Reportar após a live: views, pedidos, cupons usados.",
-    "material": "Seção 4 do briefing (briefing_namorados_2026.docx) — roteiro completo com abertura A/B, produto, oferta e CTA",
-    "escalar": "Problema técnico na plataforma Shopee ou estoque esgotado de produto principal durante a live"
-  },
-  {
-    "titulo": "Marcela — Artes Freela: Banner Vitrine + Painel VM (todas as lojas)",
-    "resp": "Marcela",
-    "data": "05/06/2026",
-    "lista": "Campanhas do Mês",
-    "fazer": "Encaminhar briefing completo para a freela (arquivo briefing_freela_namorados_2026.docx). Acompanhar entrega das 7 artes até 05/06. Coordenar impressão e distribuição para cada loja até 08/06.",
-    "material": "Arquivo briefing_freela_namorados_2026.docx — briefing autocontido com medidas por loja, fotos base e diretrizes visuais",
-    "escalar": "Arte com dúvida de conteúdo ou aprovação que tenha impacto estratégico — não aprovar sozinha antes de imprimir"
-  },
-  {
-    "titulo": "Marcela — Distribuição de materiais físicos (todas as lojas)",
+    "titulo": "Editorial Fe Tumas — Feed + Ads",
     "resp": "Marcela",
     "data": "08/06/2026",
     "lista": "Campanhas do Mês",
-    "fazer": "Coordenar impressão e distribuição de: PVC 10x15cm (65 unid por loja conforme briefing), Acrílico Quadrinho 15x15cm (18 unid), Banner Vitrine (1 por loja — medidas no briefing), Painel VM (quantidades por loja na tabela). Confirmar recebimento em cada loja.",
-    "material": "Seção 6 do briefing (briefing_namorados_2026.docx) — fichas de loja física com medidas e quantidades por peça",
-    "escalar": "Atraso que comprometa montagem antes de 10/06 — avisar Ana com 2 dias de antecedência"
+    "fazer": "Coordenar envio do kit para Fe Tumas (3 peças selecionadas), alinhar prazo de publicação (até 08/06) e briefing de conteúdo. Confirmar marcação @piuka nos posts. Monitorar publicação e reportar para Ana.",
+    "material": "Seção 2.4B do briefing (briefing influencers/afiliadas) + sub-doc Marcela",
+    "escalar": "Se Fe Tumas não confirmar recebimento do kit até 01/06 ou não publicar até 08/06",
+    "cover_image": "Captura de tela 2026-06-15 094106.png"
   },
   {
-    "titulo": "Marcela — Alinhamento das lojas físicas sobre campanha",
+    "titulo": "Lives Namorados — Shopee (07/06) + TikTok Shop (11/06)",
     "resp": "Marcela",
-    "data": "09/06/2026",
+    "data": "07/06/2026",
     "lista": "Campanhas do Mês",
-    "fazer": "Alinhar equipe de cada loja sobre: produto foco (Coleção Namorados 2026), oferta ativa (flash sale 15% OFF em 12/06), como comunicar com a cliente. Confirmar que o preço da campanha no site está igual ao praticado na loja física.",
-    "material": "Seção 7 do briefing — sub-doc Marcela (briefing_namorados_2026.docx)",
-    "escalar": "Loja sem estoque da coleção — avisar Ana ANTES de publicar qualquer campanha nessa loja"
+    "fazer": "Conduzir as 2 lives da campanha Namorados: Shopee em 07/06 e TikTok Shop em 11/06. Ler roteiros da seção 2.4, preencher os campos pessoais [ESPAÇO MARCELA] antes de cada live. Produto foco: Rivieras + Colar com Inicial.",
+    "material": "Seção 2.4 do briefing (roteiros de live) + sub-doc Marcela",
+    "escalar": "Se produto não estiver disponível para mostrar na live — avisar Ana com 48h de antecedência"
   },
   {
-    "titulo": "Marcela — Confirmação de estoque físico da coleção",
+    "titulo": "Missão Afiliadas Junho — 1 post/dia + competição de vendas",
     "resp": "Marcela",
-    "data": "10/06/2026",
+    "data": "01/06/2026",
     "lista": "Campanhas do Mês",
-    "fazer": "Verificar que a Coleção Namorados 2026 está disponível em estoque físico em todas as lojas antes da live (10/06) e da flash sale (12/06). Conferir produto foco: conjunto colar + brinco, pulseira riviera e anel solitário.",
-    "material": "Sistema de estoque interno",
-    "escalar": "Qualquer loja com estoque insuficiente — avisar Ana com 2 dias de antecedência mínimo"
+    "fazer": "Enviar mensagem de abertura do mês no grupo WhatsApp das afiliadas (copy pronta no briefing seção 2.4B). Comunicar missão: 1 post/dia sobre presentes de Namorados. Divulgar competição: maior volume de vendas 01–12/06 ganha kit R$500.",
+    "material": "Seção 2.4B do briefing (afiliadas) + sub-doc Marcela",
+    "escalar": "Se houver dúvida sobre regras da competição ou se afiliada pedir exceção de prazo"
+  },
+  {
+    "titulo": "Vitrine e PVCs lojas físicas — campanha Namorados",
+    "resp": "Marcela",
+    "data": "05/06/2026",
+    "lista": "Campanhas do Mês",
+    "fazer": "Garantir que material visual (PVCs + banners vitrine) esteja impresso e montado em todas as lojas até 05/06. Conferir se preço da campanha no PDV confere com site. Alinhar equipe das lojas sobre produto foco e oferta ativa.",
+    "material": "Seção 2.5 do briefing (fichas de loja física) + tabela de tamanhos ao final do briefing",
+    "escalar": "Se material não chegar até 03/06 ou se preço no PDV estiver diferente do site"
   }
 ]
